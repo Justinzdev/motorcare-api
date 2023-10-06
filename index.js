@@ -2,7 +2,7 @@ require('dotenv').config()
 const express = require('express')
 const cors = require('cors')
 
-// require('./components/services/schedule')
+require('./components/services/schedule')
 
 const api = express()
 const port = process.env.PORT || 4000

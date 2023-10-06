@@ -46,13 +46,11 @@ exports.userSignin = async (req, res) => {
 exports.updateLocation = async (req, res) => {
     const { user_id, user_lat, user_lng } = req.body
 
-    console.log(req.body)
-
-    // await dbQuery.execute('UPDATE User SET user_lat = ?, user_lng = ? WHERE user_id = ?', [user_lat, user_lng, user_id])
-    // .then((response) => {
-    //     return res.status(200).send({ msg: 'อัปเดตสำเร็จ' })
-    // })
-    // .catch((err) => {
-    //     return res.status(403).send({ msg: 'ไม่สามารถอัปเดตได้' })
-    // })
+    await dbQuery.execute('UPDATE User SET user_lat = ?, user_lng = ? WHERE user_id = ?', [Number(user_lat), Number(user_lng), user_id])
+    .then((response) => {
+        return res.status(200).send({ msg: 'อัปเดตสำเร็จ' })
+    })
+    .catch((err) => {
+        return res.status(403).send({ msg: 'ไม่สามารถอัปเดตได้' })
+    })
 }
