@@ -10,6 +10,7 @@ const port = process.env.PORT || 4000
 const userRoute = require('./components/routes/userRoutes')
 const bikeRepairRoute = require('./components/routes/bikeRepairRoutes')
 const damageRoute = require('./components/routes/damageRoutes')
+const notificationRoute = require('./components/routes/notificationRoutes')
 
 const corsOptions = {
     origin: '*',
@@ -25,5 +26,6 @@ api.use(express.urlencoded({ extended: true }))
 api.use('/api/user', userRoute)
 api.use('/api/bikerepair', bikeRepairRoute)
 api.use('/api/damage', damageRoute)
+api.use('/api/notification', notificationRoute)
 
 api.listen(port, console.log(`API is running on port ${port}`))

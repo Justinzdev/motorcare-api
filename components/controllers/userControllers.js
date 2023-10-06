@@ -42,3 +42,17 @@ exports.userSignin = async (req, res) => {
         return res.status(200).send({ msg: 'เข้าสู่ระบบสำเร็จ', user_id: findUserLogin[0].user_id, user_role: findUserLogin[0].user_role, bp_id: findUserLogin[0].bp_id }) 
     } else return res.status(404).send({ msg: 'ชื่อผู้ใช้งาน/รหัสผ่าน ไม่ถูกต้อง' })
 }
+
+exports.updateLocation = async (req, res) => {
+    const { user_id, user_lat, user_lng } = req.body
+
+    console.log(req.body)
+
+    // await dbQuery.execute('UPDATE User SET user_lat = ?, user_lng = ? WHERE user_id = ?', [user_lat, user_lng, user_id])
+    // .then((response) => {
+    //     return res.status(200).send({ msg: 'อัปเดตสำเร็จ' })
+    // })
+    // .catch((err) => {
+    //     return res.status(403).send({ msg: 'ไม่สามารถอัปเดตได้' })
+    // })
+}
