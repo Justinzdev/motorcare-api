@@ -1,9 +1,5 @@
 const dbQuery = require('../../db')
 
-exports.getUsers = async (req, res) => {
-    //
-}
-
 exports.userSignup = async (req, res) => {
     const { user_username, user_email, user_phone, user_password } = req.body
 

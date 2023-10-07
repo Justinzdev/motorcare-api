@@ -42,6 +42,7 @@ exports.confirmJob = async (req, res) => {
 
     const [findJob] = await dbQuery.execute('SELECT Damage.*, Bike_repair.bp_name FROM Damage INNER JOIN Bike_repair ON Damage.bp_id = Bike_repair.bp_id WHERE Damage.bp_id = ? AND Damage.id = ? LIMIT 1', [bp_id, dm_id])
     if(findJob.length > 0) {
+        await dbQuery.execute('UPDATE Bike_repair SET bp_count_use = bp_count_use + 1 WHERE bp_id = ?', [bp_id])
         await dbQuery.execute('UPDATE Damage SET dm_status = 2 WHERE bp_id = ? AND id = ?', [findJob[0].bp_id, findJob[0].id])
         .then(async (response) => {
             await dbQuery.execute('INSERT INTO Notifications (user_id, noti_title, noti_description) VALUES (?, ?, ?)',
