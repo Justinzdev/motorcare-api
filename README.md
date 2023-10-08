@@ -3,7 +3,7 @@
 Set Env before Run
 
 ```
-.env
+# .env
 
 PORT=4000
 database_HOSTNAME = your_hostname
