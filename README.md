@@ -12,3 +12,11 @@ database_PASSWORD = your_password
 database_DB = your_db
 
 ```
+
+# Step for run
+
+```
+1. Create an .env file and enter the text as above.
+2. npm install
+3. npm run dev
+```
